@@ -40,9 +40,11 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        assert index >= 0 and index < len(self.indexed_dataset())
+        """Returns a dictionary with the following key-value pairs:"""
         assert type(index) is int
         assert type(page_size) is int and page_size > 0
+        assert index >= 0 and index < len(self.indexed_dataset())
+
         if index is None:
             index = 0
         data = []
