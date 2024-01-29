@@ -41,8 +41,6 @@ class Server:
         assert type(page_size) is int and page_size > 0
 
         data = self.dataset()
-        if data is None:
-            return []
         try:
             start, end = index_range(page, page_size)
             return data[start:end]
