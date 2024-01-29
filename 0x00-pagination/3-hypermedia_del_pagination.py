@@ -43,8 +43,7 @@ class Server:
         assert 0 <= index < len(self.indexed_dataset())
         assert type(index) is int
         assert type(page_size) is int and page_size > 0
-        if index is None:
-            index = 0
+        
         data = []
         next_index = index + page_size
         for i in range(index, next_index):
