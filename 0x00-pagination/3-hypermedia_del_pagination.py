@@ -53,7 +53,7 @@ class Server:
             else:
                 next_index += 1
                 i += 1
-        
+
         return {
             'index': index,
             'next_index': next_index,

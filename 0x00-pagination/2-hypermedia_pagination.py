@@ -36,7 +36,6 @@ class Server:
 
         return self.__dataset
 
-    
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ Finds the correct indexes to paginate dataset correctly"""
         assert type(page) is int and page > 0
@@ -48,14 +47,13 @@ class Server:
             return dataList[start:end]
         except IndexError:
             return []
-    
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Implement a get_hyper method that takes the same arguments
         (and defaults) as get_page and returns a dictionary
         containing the following key-value pairs:
-        
+
         page_size: the length of the returned dataset page
         page: the current page number
         data: the dataset page (equivalent to return from previous task)
