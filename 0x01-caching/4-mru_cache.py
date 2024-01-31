@@ -26,14 +26,14 @@ class MRUCache(BaseCaching):
         """
         if key is None or item is None:
             return
+        if key in self.unused_keys:
+            self.unused_keys.append(
+                self.unused_keys.pop(self.unused_keys.index(key))
+                )
+        else:
+            self.unused_keys.append(key)
         size = BaseCaching.MAX_ITEMS
         if key not in self.cache_data and len(self.cache_data) >= size:
-            if key in self.unused_keys:
-                self.unused_keys.append(
-                    self.unused_keys.pop(self.unused_keys.index(key))
-                    )
-            else:
-                self.unused_keys.append(key)
             discard_key = self.unused_keys.pop()
             self.cache_data.pop(discard_key)
             print("DISCARD: {}".format(discard_key))
