@@ -10,11 +10,13 @@ class LIFOCache(BaseCaching):
     and is a caching system:
     """
     
+    
     def __init__(self):
         """
         constructor
         """
         super().__init__()
+    
     
     def put(self, key, item):
         """
@@ -25,7 +27,7 @@ class LIFOCache(BaseCaching):
             return
         size = BaseCaching.MAX_ITEMS
         if key not in self.cache_data and len(self.cache_data) >= size:
-            first_key = self.cache_data.popitem()
+            first_key, value = self.cache_data.popitem()
             print("DISCARD: {}".format(first_key))
         self.cache_data[key] = item
     

@@ -10,11 +10,13 @@ class FIFOCache(BaseCaching):
     and is a caching system:
     """
     
+    
     def __init__(self):
         """
         constructor
         """
         super().__init__()
+    
     
     def put(self, key, item):
         """
