@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Basic dictionary implementation"""
 
-
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
@@ -14,7 +13,7 @@ class BasicCache(BaseCaching):
     
     def __init__(self):
         """
-        constructor
+        Class Constructor
         """
         super().__init__()
     

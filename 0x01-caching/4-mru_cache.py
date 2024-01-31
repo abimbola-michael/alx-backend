@@ -13,7 +13,7 @@ class MRUCache(BaseCaching):
     
     def __init__(self):
         """
-        constructor
+        Class Constructor
         """
         super().__init__()
         self.unused_keys = []
@@ -34,7 +34,7 @@ class MRUCache(BaseCaching):
             self.unused_keys.append(key)
         size = BaseCaching.MAX_ITEMS
         if key not in self.cache_data and len(self.cache_data) >= size:
-            discard_key = self.unused_keys.pop()
+            discard_key = self.unused_keys.pop(-2)
             self.cache_data.pop(discard_key)
             print("DISCARD: {}".format(discard_key))
         self.cache_data[key] = item

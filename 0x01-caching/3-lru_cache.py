@@ -13,7 +13,7 @@ class LRUCache(BaseCaching):
     
     def __init__(self):
         """
-        constructor
+        Class Constructor
         """
         super().__init__()
         self.unused_keys = []
