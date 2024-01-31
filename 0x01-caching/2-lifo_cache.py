@@ -9,15 +9,13 @@ class LIFOCache(BaseCaching):
     a class LIFOCache that inherits from BaseCaching
     and is a caching system:
     """
-    
-    
+
     def __init__(self):
         """
         Class Constructor
         """
         super().__init__()
-    
-    
+
     def put(self, key, item):
         """
         Must assign to the dictionary self.cache_data the item
@@ -30,7 +28,6 @@ class LIFOCache(BaseCaching):
             first_key, value = self.cache_data.popitem()
             print("DISCARD: {}".format(first_key))
         self.cache_data[key] = item
-    
 
     def get(self, key):
         """
