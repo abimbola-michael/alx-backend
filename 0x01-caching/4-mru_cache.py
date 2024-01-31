@@ -27,9 +27,7 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
         if key in self.unused_keys:
-            self.unused_keys.append(
-                self.unused_keys.pop(self.unused_keys.index(key))
-                )
+            self.unused_keys.append(self.unused_keys.pop(self.unused_keys.index(key)))
         else:
             self.unused_keys.append(key)
         size = BaseCaching.MAX_ITEMS
