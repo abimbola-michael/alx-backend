@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""LIFO caching"""
+"""LIFO caching implementation"""
 
 from base_caching import BaseCaching
 
@@ -21,7 +21,7 @@ class LIFOCache(BaseCaching):
         Must assign to the dictionary self.cache_data the item
         value for the key key.
         """
-        if key or item is None:
+        if key is None or item is None:
             return
         size = BaseCaching.MAX_ITEMS
         if key not in self.cache_data and len(self.cache_data) >= size:

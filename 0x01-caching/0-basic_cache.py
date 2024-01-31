@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Basic dictionary"""
+"""Basic dictionary implementation"""
 
 
 BaseCaching = __import__('base_caching').BaseCaching
+
 
 class BasicCache(BaseCaching):
     """
@@ -19,10 +20,10 @@ class BasicCache(BaseCaching):
         """
         Must assign to the dictionary self.cache_data the
         item value for the key key.
-        If key or item is None, this method
+        if key is None or item is None, this method
         should not do anything.
         """
-        if key or item is None:
+        if key is None or item is None:
             return
         self.cache_data[key] = item
     
