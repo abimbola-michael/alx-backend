@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Basic Babel setup
+Get locale from request
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
@@ -21,10 +21,19 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
+@babel.localeselector
+def get_locale():
+    """Gets locale from request"""
+    locale = request.args.get("locale")
+    if locale and locale in app.config["LANGUAGES"]:
+        return locale
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
 @app.route("/", methods=["GET"], strict_slashes=False)
 def index():
     """GET method for the index route"""
-    return render_template("1-index.html")
+    return render_template("4-index.html")
 
 
 if __name__ == "__main__":
